@@ -1,0 +1,15 @@
+.btn{
+    padding: 0.8rem 2rem;
+    border-radius: 0.8rem;
+    font-size: large;
+    font-weight: bold;
+    color: beige;
+}
+
+.btn.primary{
+    background: green;
+}
+
+.btn.default{
+    background: orangered;
+}
