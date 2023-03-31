@@ -41,12 +41,13 @@ export class StudentGrade extends React.Component<StudentGradeProps, StudentGrad
 
  }
     handleInputOnChange = (stateKey:Fields) => (event:React.ChangeEvent<HTMLInputElement>)=>{
-
+       
         const {value} = event.currentTarget
         const {fieldWithError} = this.state
+       
 
         this.setState(
-            {[stateKey] : value} as unknown as Omit<StudentGradeState, 'studentgrade' | 'fieldwithError'>
+            {[stateKey] : value} as unknown as Omit<StudentGradeState, 'studentsrade' | 'fieldwithError'>
         );
         if(fieldWithError === stateKey && value.length) this.setState({fieldWithError:''})
 
@@ -67,21 +68,27 @@ export class StudentGrade extends React.Component<StudentGradeProps, StudentGrad
     }
 
     areInputsValid = () =>{
+        const {INPUT_GRADE, INPUT_STUDENTS_NAME} = FIELDS_CONFIG
          const {inputGrade, inputStudentName} = this.state
          let hasError = false
          if(!inputStudentName){
             this.inputStudentNameRef.current && this.inputStudentNameRef.current.focus()
             hasError = true
-            this.setState({fieldWithError: 'inputStudentName'});
+            this.setState({fieldWithError: INPUT_STUDENTS_NAME.name});
          }
          else if(!inputGrade){
             this.inputGraderef.current && this.inputGraderef.current.focus();
             hasError = true
-            this.setState({fieldWithError:'inputGrade'})
+            this.setState({fieldWithError: INPUT_GRADE.name})
 
          }
          return inputGrade && inputStudentName;
 
+    }
+    setTouched = () =>{
+        // const {INPUT_GRADE, INPUT_STUDENTS_NAME} = FIELDS_CONFIG
+        // this.setState({fieldWithError: INPUT_STUDENTS_NAME.name});
+        this.areInputsValid();
     }
 
     getErrorMessage =(field:Fields) =>{
@@ -115,6 +122,7 @@ export class StudentGrade extends React.Component<StudentGradeProps, StudentGrad
                     label={INPUT_STUDENTS_NAME.label}
                     value ={inputStudentName}
                     error = {this.getErrorMessage(INPUT_STUDENTS_NAME.name)}
+                    onBlur = {this.setTouched}
 
                     />
 
@@ -124,9 +132,10 @@ export class StudentGrade extends React.Component<StudentGradeProps, StudentGrad
                     label={INPUT_GRADE.label}
                     value ={inputGrade}
                     error = {this.getErrorMessage(INPUT_GRADE.name)}
+                    onBlur={this.setTouched}
                     />
                     <br />
-                    <Button className="student-grade-button" type="primary" onclick={this.handleButtonClick}></Button>
+                    <Button className="student-grade-button" type="primary" onclick={this.handleButtonClick}>Add</Button>
                     <GradeWith90AndAbove />
                     <GradeWith70AndBelow />
                 </div>

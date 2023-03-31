@@ -1,0 +1,16 @@
+.btn-primary{
+    background-color: skyblue;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.btn-default{
+    padding: 5px;
+    cursor: pointer;
+}
+
+.button-group-btn{
+    background-color: green;
+    cursor: pointer;
+    padding: 5px;
+}

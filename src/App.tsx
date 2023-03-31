@@ -1,6 +1,9 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
+import { HomePage } from './components/childrec-clone-isvalid-elements/HomePage';
+//import { HomePage } from './components/code-splitting/HomePage';
+import { StudentGrade } from './components/seconForm&Ass_solut/StudentGrade';
 
 // import SuperComponent from './components/refs/SuperComponent/SuperComponent';
 
@@ -10,7 +13,7 @@ import './App.css';
 // import { MyContext, MyContextProvider } from './components/contextApi/context/myContext';
 //import { FormElements } from './components/FormElements';
 //import Button from './components/studentgrades/Button';
-import { StudentGrade } from './components/forms-assignment-solution/StudentGrade';
+
 // import { StudentGrade } from './components/studentgrades/StudentGrade';
 
 class App extends React.Component{
@@ -53,7 +56,7 @@ class App extends React.Component{
     {/* <FormElements /> */}
     
     
-    <StudentGrade />
+    <HomePage />
    </div>
   
    </>

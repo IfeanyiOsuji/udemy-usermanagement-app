@@ -15,7 +15,7 @@ export type StudentGradeState = {
 export type Fields = 'inputGrade' | 'inputStudentName'
 
 export interface FieldConfig{
-    [Field:string]:{
+    [field:string]:{
         name: Fields,
         label: string
     }

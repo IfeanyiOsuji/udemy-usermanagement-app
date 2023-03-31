@@ -6,10 +6,10 @@ export const FIELDS_CONFIG: FieldConfig = {
         name:'inputStudentName',
         label:'student Name'
     },
-    INPUT_GRADE:{
-        name:'inputGrade',
-        label:'Grade'
-    }
+   INPUT_GRADE:{
+    name:'inputGrade',
+    label:'Grade'
+   }
 }
 
 export const ERROR_MESSAGE = 'please complete the field'
